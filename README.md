@@ -13,26 +13,20 @@ Modeling & ML: XGBoost, scikit-learn
 Visualization: seaborn, matplotlib, plotly (for geospatial analysis)
 Statistical Analysis :scipy.stats, statsmodels
 
-3. Methodology & Current Progress
-The project follows a standard machine learning workflow. The Exploratory Data Analysis (EDA) phase is complete, and the focus is shifting to advanced feature engineering and model preparation.
+✅ Accomplished (Phase 1)
+Data Preparation: Loaded, cleaned, and performed initial preprocessing on the insurance claims dataset.
 
-Completed: Initial EDA & Data Cleaning
-Custom Missing Value Imputation: Identified and systematically handled non-standard missing data placeholders (?) by converting them to np.nan for accurate analysis.
+Exploratory Data Analysis (EDA): Conducted analysis to understand feature distributions, correlations, unnecessqry variables, and initial insights, documented in insurence_project_eda.ipynb.
 
-Missingness Significance: Performed Chi-Squared Tests to confirm that the missingness of key categorical features (e.g., police_report_available) is statistically dependent on the target variable (fraud_reported). This justifies treating missingness as a valuable feature category for the tree-based model.
+Baseline Modeling: Trained and evaluated an XGBoost model using grid search.
 
-Next Steps: Detailed To-Do List
-Phase	Task	Details
-Feature Engineering	
-  1. Temporal Feature Creation	Deriving crucial variables: 'Car Age' and 'Customer Tenure' (time between policy bind and incident date) to capture temporal risk factors.
-  2. Geospatial Analysis (EDA)	Implementing a Choropleth Map visualization to identify potential geographic clusters of high fraud rates by state or region.
-    Feature Encoding
-  3. High-Cardinality Strategy	Applying Target Encoding to high-cardinality nominal features (e.g., auto_model, insured_hobbies) to manage dimensionality while preserving predictive power.
-  4. Addressing Imbalance	Mitigating the class imbalance issue using the scale_pos_weight hyperparameter within the XGBoost model training phase.
-  Model & Evaluation
-  5. Model Training & Tuning	Training the XGBoost classifier and optimizing hyperparameters via cross-validation.
-  6. Comprehensive Evaluation	Full assessment using AUC, Sensitivity (Recall), and Specificity as primary metrics.
-  Post-Modeling
-  7. Feature Importance Analysis	Generating a final report detailing the most significant predictors identified by the model to provide actionable business intelligence.
+Performance Evaluation: Established baseline model performance using robust metrics critical for imbalanced data, including ROC AUC (0.85) and Confusion Matrix analysis.
+
+Future Roadmap 
+Imbalance Mitigation: Implement bootstrapping or advanced resampling techniques (e.g., SMOTE) to effectively manage the 3:1 class imbalance during training, aiming to stabilize the model and improve minority class performance. (Percision and recall are not too good)
+
+Model Explainability: Introduce SHAP (SHapley Additive exPlanations) to provide local and global interpretation of model predictions, moving beyond simple feature importance.
+
+Advanced Feature Engineering: Utilize the insights gained from SHAP analysis—specifically, identifying key feature interactions—to guide the creation of new, high-impact features to significantly boost the final model's predictive power.
 
 
